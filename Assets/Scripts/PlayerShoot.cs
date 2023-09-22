@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
+
+    public static PlayerShoot Instance;
+
     //Aim Stuff
     public Camera cam;
     public Vector3 mousePos;
@@ -24,7 +27,7 @@ public class PlayerShoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Instance = this;
     }
 
     // Update is called once per frame

@@ -305,15 +305,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   mouseOffset: {x: 12.5, y: 12.5}
-  bigDamage: 0
-  smallDamage: 0
-  miniDamage: 0
-  bigRange: 0
-  smallRange: 0
-  miniRange: 0
-  bigFire: 0
-  smallFire: 0
-  miniFire: 0
+  bigDamage: 150
+  smallDamage: 70
+  miniDamage: 40
+  bigRange: 100
+  smallRange: 80
+  miniRange: 40
+  bigFire: 0.2
+  smallFire: 0.5
+  miniFire: 5
   weaponDamage:
   - 0
   - 0

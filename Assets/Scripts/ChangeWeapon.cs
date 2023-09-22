@@ -87,6 +87,14 @@ public class ChangeWeapon : MonoBehaviour
         weaponFireRate[1] = smallFire;
         weaponFireRate[2] = miniFire;
 
+        //Set the chosen gun to active
+        Cursor.SetCursor(cursors[activeGun], mouseOffset, CursorMode.ForceSoftware);
+        Txt[activeGun].enabled = true;
+        PlayerShoot.Instance.damage = weaponDamage[activeGun];
+        PlayerShoot.Instance.turretRange = weaponRange[activeGun];
+        PlayerShoot.Instance.fireRate = weaponFireRate[activeGun];
+        PlayerShoot.Instance.shotTimer = 1 / weaponFireRate[activeGun];
+
     }
 
     // Update is called once per frame
@@ -96,6 +104,8 @@ public class ChangeWeapon : MonoBehaviour
         {
             switchWeapon();
         }
+
+
     }
 
 
@@ -120,12 +130,15 @@ public class ChangeWeapon : MonoBehaviour
             {
                 //Set the chosen gun to active
                 Cursor.SetCursor(cursors[activeGun], mouseOffset, CursorMode.ForceSoftware);
-                Txt[i].enabled = true;
+                Txt[activeGun].enabled = true;
+                PlayerShoot.Instance.damage = weaponDamage[activeGun];
+                PlayerShoot.Instance.turretRange = weaponRange[activeGun];
+                PlayerShoot.Instance.fireRate = weaponFireRate[activeGun];
+                PlayerShoot.Instance.shotTimer = 1 / weaponFireRate[activeGun];
             }
             else
             {
                 //set all other guns to inactive
-                Cursor.SetCursor(cursors[activeGun], mouseOffset, CursorMode.ForceSoftware);
                 Txt[i].enabled = false;
             }
         }
