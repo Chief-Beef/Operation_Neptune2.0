@@ -272,6 +272,7 @@ MonoBehaviour:
   fireRate: 5
   knockback: 2
   shotTimer: 0
+  bulletPatricle: {fileID: 1280434031193440012, guid: a07af487c85ee0c448282af6e3e71042, type: 3}
 --- !u!114 &7390921533736435443
 MonoBehaviour:
   m_ObjectHideFlags: 0
