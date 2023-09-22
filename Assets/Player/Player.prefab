@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6603362316467393093}
   - component: {fileID: 8020400699211209075}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player_Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 8812520342968515420}
   - component: {fileID: 518715660875823886}
   - component: {fileID: 2981367117085999028}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8466766502327041115}
   - component: {fileID: 5142920153864084740}
-  m_Layer: 0
+  - component: {fileID: 9085291655752465377}
+  - component: {fileID: 7390921533736435443}
+  m_Layer: 7
   m_Name: Player_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,6 +249,82 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9085291655752465377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7924555144313730154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510aa97d2c89874086de0773e10381f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 518715660875823886}
+  mousePos: {x: 0, y: 0, z: 0}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  triggerPull: 0
+  turretRange: 30
+  damage: 40
+  fireRate: 5
+  knockback: 2
+  shotTimer: 0
+--- !u!114 &7390921533736435443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7924555144313730154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98584c506f29d8e49b614000b97e2b78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalGuns: 3
+  activeGun: 0
+  switchGuns: 113
+  turret: {fileID: 5142920153864084740}
+  guns: []
+  bigCannon: {fileID: 21300000, guid: f7bc9cd9509952d47a5654af55b9666d, type: 3}
+  smallCannon: {fileID: 21300000, guid: 5829bf1cf1f1a494ab5018f16a29f251, type: 3}
+  miniGun: {fileID: 21300000, guid: 437ceecf636a82b48a6668610711a92b, type: 3}
+  Txt: []
+  bigText: {fileID: 0}
+  smallText: {fileID: 0}
+  miniText: {fileID: 0}
+  bigCross: {fileID: 2800000, guid: 67d96ea281523454083d99d4724b736a, type: 3}
+  smallCross: {fileID: 2800000, guid: d4fe92c568f17094e91a4c2ebf2497fb, type: 3}
+  miniCross: {fileID: 2800000, guid: 28422343308c34443b21b45eecb07c75, type: 3}
+  cursors:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  mouseOffset: {x: 12.5, y: 12.5}
+  bigDamage: 0
+  smallDamage: 0
+  miniDamage: 0
+  bigRange: 0
+  smallRange: 0
+  miniRange: 0
+  bigFire: 0
+  smallFire: 0
+  miniFire: 0
+  weaponDamage:
+  - 0
+  - 0
+  - 0
+  weaponRange:
+  - 0
+  - 0
+  - 0
+  weaponFireRate:
+  - 0
+  - 0
+  - 0
 --- !u!1 &9069564708668913612
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,9 +336,10 @@ GameObject:
   - component: {fileID: 1253675887114693392}
   - component: {fileID: 7346470975435869797}
   - component: {fileID: 8416409199694516874}
-  m_Layer: 0
+  - component: {fileID: 8296873582039103982}
+  m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -330,4 +409,30 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!61 &8296873582039103982
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9069564708668913612}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

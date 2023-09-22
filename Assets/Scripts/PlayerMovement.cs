@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     public float camDefaultSize;
     public float camSizeMod, camTrailMod;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
 
         //Camera controls 
         var vel = rb.velocity.magnitude;
+        
+        //this line will change the camera size if added back in
         //cam.orthographicSize = camDefaultSize + (Mathf.Lerp(vel, lastVelocity, 0.05f) / camSizeMod);
 
         // Sets camera position relative to player
@@ -65,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
         turretPos = turret.transform.position;
         turretLook = (mousePos - (Vector2)turretPos).normalized;
         turret.transform.up = turretLook;
+
         
 
     }
