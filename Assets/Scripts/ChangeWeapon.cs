@@ -90,10 +90,10 @@ public class ChangeWeapon : MonoBehaviour
         //Set the chosen gun to active
         Cursor.SetCursor(cursors[activeGun], mouseOffset, CursorMode.ForceSoftware);
         Txt[activeGun].enabled = true;
-        PlayerShoot.Instance.damage = weaponDamage[activeGun];
-        PlayerShoot.Instance.turretRange = weaponRange[activeGun];
-        PlayerShoot.Instance.fireRate = weaponFireRate[activeGun];
-        PlayerShoot.Instance.shotTimer = 1 / weaponFireRate[activeGun];
+        PlayerShoot.Instance.damage = weaponDamage[0];
+        PlayerShoot.Instance.turretRange = weaponRange[0];
+        PlayerShoot.Instance.fireRate = weaponFireRate[0];
+        PlayerShoot.Instance.shotTimer = 1 / weaponFireRate[0];
 
     }
 

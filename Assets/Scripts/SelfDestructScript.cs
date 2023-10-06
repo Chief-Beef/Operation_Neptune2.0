@@ -15,6 +15,9 @@ public class SelfDestructScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //if no hit then kill on timer, else kill when it hits enemy
+
+
         Destroy(this.gameObject, killTimer);
     }
     

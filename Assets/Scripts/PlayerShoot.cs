@@ -19,10 +19,9 @@ public class PlayerShoot : MonoBehaviour
     public float fireRate;      //shots per second
     public float knockback;     //per shot knockback
     public RaycastHit2D hit;    //raycast
+    public ParticleSystem gunShot;  //gunshot particle effect
 
     public float shotTimer;     //delay between shots    
-    public GameObject bulletPatricle;   //bullet Particle Effect
-    private Quaternion bulletRotation;  //bullet Particle Rotation X -90
 
     // Start is called before the first frame update
     void Start()
@@ -45,10 +44,7 @@ public class PlayerShoot : MonoBehaviour
         if(shotTimer <= 0)
         {
             shootWeapon();
-            bulletRotation = new Quaternion(Quaternion.identity.x, Quaternion.identity.y, transform.rotation.z, Quaternion.identity.w);
-            Instantiate(bulletPatricle, this.transform);
         }
-        
 
     }
 
@@ -76,6 +72,9 @@ public class PlayerShoot : MonoBehaviour
                 target.hitMarker(damage);
             }
         }
+
+        gunShot.Play();
+
     }
 
 }
