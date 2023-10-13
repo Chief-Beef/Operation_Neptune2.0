@@ -12,14 +12,24 @@ public class PlayerHealth : MonoBehaviour
     public float health;
     public float maxHealth;
     public float regenTimer;
+    public float regenReset;
     public float fill;
     public float healthPct;
 
     public Image HealthImage;
-    
+
+    //Game Over Stuff
+    public GameObject platform, turret, healthBar, spawners;
+    public GameObject gameOverScreen;
+    public BoxCollider2D playerHitBox;
+
+    //iFrames
+    public float respawnImmunity, hitImmunity;
+    public bool immune;
 
     private void Start()
     {
+        immune = false;
         Instance = this;
     }
 
@@ -54,15 +64,45 @@ public class PlayerHealth : MonoBehaviour
     }
     public void TakeDamage(float dmg)
     {
-        health -= dmg;
-        regenTimer = 5f;
-
-        if (health <= 0)
+        if (!immune)
         {
-            //death mechanic go here
-            health = 0;
+            health -= dmg;
+            regenTimer = 5f;
+            StartCoroutine(ImmunityReset(hitImmunity));     //iFrames on hit
 
+            if (health <= 0)
+            {
+                //death mechanic go here
+                health = 0;
+                GameOver();
+            }
         }
     }
 
+    public void GameOver()
+    {
+        //Game Over Stuff
+        platform.SetActive(false);
+        turret.SetActive(false);
+        healthBar.SetActive(false);
+        spawners.SetActive(false);
+        //playerHitBox.enabled = false;
+
+        PlayerMovement playerScript = this.gameObject.GetComponent<PlayerMovement>();
+        playerScript.enabled = false;
+
+        Time.timeScale = 0f;
+        gameOverScreen.SetActive(true);
+
+        StartCoroutine(ImmunityReset(respawnImmunity));        //iFrames on respawn
+
+    }
+
+
+    IEnumerator ImmunityReset(float timer)
+    {
+        immune = true;
+        yield return new WaitForSeconds(timer);
+        immune = false;
+    }
 }

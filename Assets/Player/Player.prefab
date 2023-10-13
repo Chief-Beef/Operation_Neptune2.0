@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 2981367117085999028}
   m_Layer: 7
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -889,13 +889,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57d6fa7c1832bf46879cb77e0d036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regen: 0
+  regen: 1
   health: 100
   maxHealth: 100
   regenTimer: 0
+  regenReset: 0
   fill: 0
   healthPct: 0
   HealthImage: {fileID: 7547509577069899758}
+  platform: {fileID: 3113421878331725134}
+  turret: {fileID: 7924555144313730154}
+  healthBar: {fileID: 6304937542683555588}
+  spawners: {fileID: 5319221054697746648}
+  gameOverScreen: {fileID: 0}
+  playerHitBox: {fileID: 8296873582039103982}
+  respawnImmunity: 3
+  hitImmunity: 0.4
+  immune: 0
 --- !u!1001 &6266972028939489089
 PrefabInstance:
   m_ObjectHideFlags: 0

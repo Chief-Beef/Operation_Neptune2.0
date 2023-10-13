@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthScript : MonoBehaviour
 {
@@ -11,6 +12,14 @@ public class HealthScript : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject enemy;
     public GameObject deathExplosion;
+
+    //BossHealthBar
+    public float fill;
+    public float healthPct;
+
+    public Image HealthImage;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,5 +57,11 @@ public class HealthScript : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (HealthImage != null)
+        {
+            fill = (health / maxHealth);
+            HealthImage.fillAmount = fill;
+            healthPct = (float)health / (float)maxHealth;
+        }
     }
 }
