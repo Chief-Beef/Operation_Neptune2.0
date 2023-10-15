@@ -15,11 +15,15 @@ public class PlayerShoot : MonoBehaviour
     //Shoot
     public float triggerPull;   //input
     public float turretRange;   //range of weapon
-    public float damage;        //damage per shot of active weapon
     public float fireRate;      //shots per second
+    public float damage;        //damage per shot of active weapon
     public float knockback;     //per shot knockback
     public RaycastHit2D hit;    //raycast
-    public ParticleSystem gunShot;  //gunshot particle effect
+
+    //public ParticleSystem gunShot;  //gunshot particle effect
+
+    public Bullet[] bullets = new Bullet[8];
+    public int totalShots = 0;
 
     public float shotTimer;     //delay between shots    
 
@@ -51,6 +55,7 @@ public class PlayerShoot : MonoBehaviour
 
     public void shootWeapon()
     {
+        
         //reset shotTimer
         shotTimer = 1 / fireRate;
 
@@ -59,22 +64,34 @@ public class PlayerShoot : MonoBehaviour
 
         Debug.DrawRay(this.transform.position, this.transform.up * turretRange, Color.blue, 1f);
 
+
         if (hit.collider != null)
         {
             //shooty stuff here
             Debug.Log(hit.transform.name);
 
+            //Do Damage
             HealthScript target = hit.transform.GetComponent<HealthScript>();
             Rigidbody2D targetRB = hit.transform.GetComponent<Rigidbody2D>();
+
             if (target != null)
             {
-                targetRB.AddForce(this.transform.up * knockback, ForceMode2D.Impulse);
-                target.hitMarker(damage);
+                targetRB.AddForce(this.transform.up * PlayerShoot.Instance.knockback, ForceMode2D.Impulse);
+                target.hitMarker(PlayerShoot.Instance.damage);
             }
+
+
+            bullets[totalShots % 4].HitTarget(target.transform.position);
+
+        }
+        else
+        {
+            bullets[totalShots % 4].Shoot();
         }
 
-        gunShot.Play();
+        //gunShot.Play();
 
+        totalShots++;
     }
 
 }
