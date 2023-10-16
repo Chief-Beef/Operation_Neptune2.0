@@ -16,11 +16,13 @@ public class Enemy : MonoBehaviour
     public float attackRange;
     public float attackDamage;
     public bool canAttack;
+    public bool canMove;
 
     // Start is called before the first frame update
     void Start()
     {
         canAttack = true;
+        canMove = true;
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -28,9 +30,15 @@ public class Enemy : MonoBehaviour
     void Update()
     {
 
-        //Enemy Movement
-        direction = (playerPos.position - this.transform.position).normalized;   //normalize to adjust for diagonal speed
-        rb.velocity = (direction * speed);                                       //multiply normal direction vector by speed magnitude
+        if (canMove)
+        {   //Enemy Movement
+            direction = (playerPos.position - this.transform.position).normalized;   //normalize to adjust for diagonal speed
+            rb.velocity = (direction * speed);                                       //multiply normal direction vector by speed magnitude
+        }
+        else
+        {
+            rb.velocity = (direction * 0f);
+        }
 
         if (Vector3.Distance(this.transform.position, playerPos.position) <= attackRange && canAttack)
         {
@@ -45,13 +53,16 @@ public class Enemy : MonoBehaviour
     {
         PlayerHealth.Instance.TakeDamage(attackDamage);
         canAttack = false;
+        canMove = false;
         StartCoroutine(AttackDelay());
     }
 
     IEnumerator AttackDelay()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.4f);
         canAttack = true;
+        canMove = true;
+        
     }
 
 }
