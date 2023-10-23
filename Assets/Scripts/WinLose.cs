@@ -10,16 +10,23 @@ public class WinLose : MonoBehaviour
 
     public GameObject winScreen, loseScreen;
 
+    public KeyCode winTestButton;
+
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
+        loseScreen.SetActive(false);
+        winScreen.SetActive(false);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        if(Input.GetKeyDown(winTestButton))
+        {
+            WinCondition();
+        }
     }
 
     public void WinCondition()
