@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class ChangeWeapon : MonoBehaviour
 {
 
+    public static ChangeWeapon Instance;
+
     //active weapons
     public int totalGuns;
     public int activeGun;
@@ -44,6 +46,8 @@ public class ChangeWeapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
+
         //assign variable values
         totalGuns = 3;
         activeGun = 0;
@@ -90,6 +94,7 @@ public class ChangeWeapon : MonoBehaviour
         //Set the chosen gun to active
         Cursor.SetCursor(cursors[activeGun], mouseOffset, CursorMode.ForceSoftware);
         Txt[activeGun].enabled = true;
+
         PlayerShoot.Instance.damage = weaponDamage[0];
         PlayerShoot.Instance.turretRange = weaponRange[0];
         PlayerShoot.Instance.fireRate = weaponFireRate[0];
@@ -142,6 +147,22 @@ public class ChangeWeapon : MonoBehaviour
                 Txt[i].enabled = false;
             }
         }
+
+    }
+
+    public void LevelUp()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            weaponDamage[i] *= 1.1f;
+            weaponRange[i] *= 1.1f;
+            weaponFireRate[i] *= 1.1f;
+        }
+
+
+        PlayerShoot.Instance.damage = weaponDamage[activeGun];
+        PlayerShoot.Instance.turretRange = weaponRange[activeGun];
+        PlayerShoot.Instance.fireRate = weaponFireRate[activeGun];
 
     }
 

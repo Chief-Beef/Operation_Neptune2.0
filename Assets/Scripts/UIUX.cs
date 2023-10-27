@@ -12,6 +12,7 @@ public class UIUX : MonoBehaviour
     public KeyCode button;
 
     public Text arenaTimerTxt;
+    public Text levelTxt;
 
     public float arenaTime;
     private int minutes, seconds;
@@ -28,6 +29,8 @@ public class UIUX : MonoBehaviour
         level = 0f;
         levelXP = 0f;
         totalLevelXP = 0f;
+
+        AddXP(0f);
     }
 
     // Update is called once per frame
@@ -70,9 +73,14 @@ public class UIUX : MonoBehaviour
 
         if(levelXP >= newLevelXP)
         {
-            level++;
             totalLevelXP += newLevelXP;
             newLevelXP = 10f + level * 3f;
+
+            level++;
+            levelTxt.text = "Level:" + level;
+
+            ChangeWeapon.Instance.LevelUp();
+
         }
 
         fill = levelXP / newLevelXP;

@@ -76,8 +76,7 @@ public class PlayerShoot : MonoBehaviour
 
             if (target != null)
             {
-                targetRB.AddForce(this.transform.up * PlayerShoot.Instance.knockback, ForceMode2D.Impulse);
-                target.hitMarker(PlayerShoot.Instance.damage);
+                StartCoroutine(DamageDelay(target, targetRB, hit));
             }
 
 
@@ -93,5 +92,17 @@ public class PlayerShoot : MonoBehaviour
 
         totalShots++;
     }
+
+    IEnumerator DamageDelay(HealthScript target, Rigidbody2D targetRB, RaycastHit2D hit)
+    {
+        yield return new WaitForSeconds(.3f);
+
+        targetRB.AddForce(this.transform.up * PlayerShoot.Instance.knockback, ForceMode2D.Impulse);
+        target.hitMarker(PlayerShoot.Instance.damage);
+
+        DamgeNumbers.Instance.DisplayNumber(hit.transform, PlayerShoot.Instance.damage);
+
+    }
+
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    
     //Movement Inputs
     public float xMove, yMove;  //movement inputs
     public float speed;         //multiplies direction by this magnitude

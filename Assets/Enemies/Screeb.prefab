@@ -54,6 +54,7 @@ MonoBehaviour:
   attackRange: 1
   attackDamage: 20
   canAttack: 0
+  canMove: 0
 --- !u!114 &5345749426223531963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,6 +72,10 @@ MonoBehaviour:
   rb: {fileID: 0}
   enemy: {fileID: 4499279876100919057}
   deathExplosion: {fileID: 861854431766076844, guid: 301495b49c1b4284890b7c3904a12fb9, type: 3}
+  killXP: 3
+  fill: 0
+  healthPct: 0
+  HealthImage: {fileID: 0}
 --- !u!61 &6393881762571978255
 BoxCollider2D:
   m_ObjectHideFlags: 0

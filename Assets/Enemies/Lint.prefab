@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 46478186696720328}
   - component: {fileID: 3819226632473187700}
   m_Layer: 0
-  m_Name: Platorm
+  m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -359,6 +359,10 @@ MonoBehaviour:
   rb: {fileID: 4357255324395915194}
   enemy: {fileID: 8787370530223467769}
   deathExplosion: {fileID: 6639266000747110412, guid: fed0562ac8e10654aad56e04ef3818fc, type: 3}
+  killXP: 5
+  fill: 0
+  healthPct: 0
+  HealthImage: {fileID: 0}
 --- !u!50 &4357255324395915194
 Rigidbody2D:
   serializedVersion: 4

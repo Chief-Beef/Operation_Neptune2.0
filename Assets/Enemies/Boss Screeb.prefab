@@ -130,6 +130,7 @@ MonoBehaviour:
   attackRange: 1
   attackDamage: 20
   canAttack: 0
+  canMove: 0
 --- !u!114 &5614217431074207836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +148,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   enemy: {fileID: 4158785016248774902}
   deathExplosion: {fileID: 861854431766076844, guid: 301495b49c1b4284890b7c3904a12fb9, type: 3}
+  killXP: 25
   fill: 0
   healthPct: 0
   HealthImage: {fileID: 8275067399662551308}
