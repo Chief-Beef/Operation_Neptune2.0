@@ -16,6 +16,7 @@ public class UIUX : MonoBehaviour
 
     public float arenaTime;
     private int minutes, seconds;
+    private int winCon = 5;
 
     public float totalXP, newLevelXP, level, levelXP, totalLevelXP, fill;
     public Image XPBar;
@@ -54,10 +55,15 @@ public class UIUX : MonoBehaviour
             arenaTimerTxt.text = "0" + minutes + ":" + seconds;
         else if (seconds < 10)
             arenaTimerTxt.text = minutes + ":0" + seconds;
-        else if (minutes > 10)
+        else if (minutes > winCon)
             WinLose.Instance.WinCondition();
         else
             arenaTimerTxt.text = minutes + ":" + seconds;
+
+        if(Input.GetKeyDown(button))
+        {
+            SceneManager.LoadScene("WinScene");
+        }
 
     }
 

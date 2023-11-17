@@ -19,6 +19,9 @@ public class EnemySpawn : MonoBehaviour
 
     public bool canSpawn;
 
+    Vector3 min = new Vector3(-100f, -100f, 0f);
+    Vector3 max = new Vector3(100f, 100f, 0f);
+
     // Start is called before the first frame update
     void Start()
     {

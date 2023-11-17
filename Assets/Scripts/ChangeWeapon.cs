@@ -23,6 +23,7 @@ public class ChangeWeapon : MonoBehaviour
     //ammo count
     public Text[] Txt;
     public Text bigText, smallText, miniText;
+    public Text[] levelUpTxt = new Text[3];
 
     //active weapon crosshair
     public Texture2D bigCross;
@@ -42,6 +43,9 @@ public class ChangeWeapon : MonoBehaviour
     public float[] weaponDamage = new float[3];
     public float[] weaponRange = new float[3];
     public float[] weaponFireRate = new float[3];
+
+    public GameObject upgradesMenu;
+    public int[] weaponLvl = new int[3]; 
 
     // Start is called before the first frame update
     void Start()
@@ -94,11 +98,21 @@ public class ChangeWeapon : MonoBehaviour
         //Set the chosen gun to active
         Cursor.SetCursor(cursors[activeGun], mouseOffset, CursorMode.ForceSoftware);
         Txt[activeGun].enabled = true;
+        upgradesMenu.SetActive(false);
 
         PlayerShoot.Instance.damage = weaponDamage[0];
         PlayerShoot.Instance.turretRange = weaponRange[0];
         PlayerShoot.Instance.fireRate = weaponFireRate[0];
         PlayerShoot.Instance.shotTimer = 1 / weaponFireRate[0];
+
+        weaponLvl[0] = 1;
+        weaponLvl[1] = 1;
+        weaponLvl[2] = 1;
+
+        levelUpTxt[0].text = "Big Cannon Level: " + weaponLvl[0];
+        levelUpTxt[1].text = "Small Cannon Level: " + weaponLvl[1];
+        levelUpTxt[2].text = "Minigun Level: " + weaponLvl[2];
+
 
     }
 
@@ -109,7 +123,6 @@ public class ChangeWeapon : MonoBehaviour
         {
             switchWeapon();
         }
-
 
     }
 
@@ -152,18 +165,39 @@ public class ChangeWeapon : MonoBehaviour
 
     public void LevelUp()
     {
-        for (int i = 0; i < 3; i++)
-        {
-            weaponDamage[i] *= 1.1f;
-            weaponRange[i] *= 1.1f;
-            weaponFireRate[i] *= 1.1f;
-        }
+        //pause game and open menu
+        Time.timeScale = 0f;
+        upgradesMenu.SetActive(true);
 
+        levelUpTxt[0].text = "Big Cannon Level: " + weaponLvl[0];
+        levelUpTxt[1].text = "Small Cannon Level: " + weaponLvl[1];
+        levelUpTxt[2].text = "Minigun Level: " + weaponLvl[2];
+
+    }
+
+    public void WeaponLevelUp(int i)
+    {
+
+        weaponDamage[i] *= 1.1f;
+        weaponRange[i] *= 1.1f;
+        weaponFireRate[i] *= 1.1f;
+
+        weaponLvl[i]++;
 
         PlayerShoot.Instance.damage = weaponDamage[activeGun];
         PlayerShoot.Instance.turretRange = weaponRange[activeGun];
         PlayerShoot.Instance.fireRate = weaponFireRate[activeGun];
 
+
+        //start game again
+        upgradesMenu.SetActive(false);
+        Time.timeScale = 1f;
+
+        levelUpTxt[0].text = "Big Cannon Level: " + weaponLvl[0];
+        levelUpTxt[1].text = "Small Cannon Level: " + weaponLvl[1];
+        levelUpTxt[2].text = "Minigun Level: " + weaponLvl[2];
+
     }
+
 
 }

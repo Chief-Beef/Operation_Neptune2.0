@@ -23,15 +23,12 @@ public class WinLose : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Input.GetKeyDown(winTestButton))
-        {
-            WinCondition();
-        }
+
     }
 
     public void WinCondition()
     {
-        winScreen.SetActive(true);
+        SceneManager.LoadScene("WinScene");
     }
 
     public void Respawn()
