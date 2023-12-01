@@ -8,7 +8,7 @@ public class WinLose : MonoBehaviour
 
     public static WinLose Instance;
 
-    public GameObject winScreen, loseScreen;
+    public GameObject loseScreen;
 
     public KeyCode winTestButton;
 
@@ -17,7 +17,6 @@ public class WinLose : MonoBehaviour
     {
         Instance = this;
         loseScreen.SetActive(false);
-        winScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -33,7 +32,6 @@ public class WinLose : MonoBehaviour
 
     public void Respawn()
     { 
-        winScreen.SetActive(false);
         loseScreen.SetActive(false);
 
         //Game Over Stuff

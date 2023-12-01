@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7931328877493980049}
   - component: {fileID: 7931328877493980054}
   - component: {fileID: 7931328877493980055}
+  - component: {fileID: 972681368925959596}
   m_Layer: 5
   m_Name: UI Scripts
   m_TagString: Untagged
@@ -105,3 +106,58 @@ MonoBehaviour:
   winScreen: {fileID: 0}
   loseScreen: {fileID: 0}
   winTestButton: 110
+--- !u!114 &972681368925959596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7931328877493980051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049f13f60c930da4fbcd1d5848eccff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  rb: {fileID: 0}
+  multiKillTimer: 0
+  multiKillReset: 0
+  multiKillTotal: 0
+  active: 0
+  lintPoints: 0
+  screebPoints: 0
+  bossLintPoints: 0
+  bossScreebPoints: 0
+  totalLints: 0
+  totalScreebs: 0
+  totalKills: 0
+  medalWheel:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  image1: {fileID: 0}
+  image2: {fileID: 0}
+  image3: {fileID: 0}
+  txtWheel:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  txt1: {fileID: 0}
+  txt2: {fileID: 0}
+  txt3: {fileID: 0}
+  doubleKill: {fileID: 21300000, guid: 718eef03cf8977b4bad410dcc936d187, type: 3}
+  tripleKill: {fileID: 21300000, guid: aa543bf25c6b9b841ae0f34c6ec36bee, type: 3}
+  quadKill: {fileID: 21300000, guid: 12a930957dd187c4e9658b551dc99cc2, type: 3}
+  fiveKill: {fileID: 21300000, guid: bad20e7671f87754f8d9c8bcb84ac0ae, type: 3}
+  sixKill: {fileID: 21300000, guid: d78088819fb9cba409c212bad564ac9d, type: 3}
+  sevenKill: {fileID: 21300000, guid: 55b7aeefb1c367a4493e4661866c468f, type: 3}
+  eightKill: {fileID: 21300000, guid: 437ceecf636a82b48a6668610711a92b, type: 3}
+  nineKill: {fileID: 21300000, guid: 5829bf1cf1f1a494ab5018f16a29f251, type: 3}
+  tenKill: {fileID: 21300000, guid: f7bc9cd9509952d47a5654af55b9666d, type: 3}
+  fiveSpree: {fileID: 21300000, guid: 0e3115716169ea4418da94be5a44f2de, type: 3}
+  tenSpree: {fileID: 21300000, guid: 9be66621be2748a42a3317c7f402c1e8, type: 3}
+  fifteenSpree: {fileID: 21300000, guid: b8e4e4371c77ee14d88873ad64bd6e2c, type: 3}
+  twentySpree: {fileID: 21300000, guid: f397c686051b96e44ab0407a9148ade5, type: 3}
+  thirtySpree: {fileID: 21300000, guid: 2a42a4806a36547409c298fd7571c901, type: 3}
+  medalCounter: 0
+  killStreak: 0

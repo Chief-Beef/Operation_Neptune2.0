@@ -48,15 +48,15 @@ public class UIUX : MonoBehaviour
         seconds = (int)arenaTime % 60;
 
         //arenaTimerTxt.text = Mathf.Round(arenaTime) + "." + (displayTime % 10);
-
-        if (minutes < 10 && seconds < 10)
+        if (minutes > winCon)
+            WinLose.Instance.WinCondition();
+        else if (minutes < 10 && seconds < 10)
             arenaTimerTxt.text = "0" + minutes + ":0" + seconds;
         else if (minutes < 10)
             arenaTimerTxt.text = "0" + minutes + ":" + seconds;
         else if (seconds < 10)
             arenaTimerTxt.text = minutes + ":0" + seconds;
-        else if (minutes > winCon)
-            WinLose.Instance.WinCondition();
+
         else
             arenaTimerTxt.text = minutes + ":" + seconds;
 
