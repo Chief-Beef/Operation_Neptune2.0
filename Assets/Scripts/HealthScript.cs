@@ -13,6 +13,7 @@ public class HealthScript : MonoBehaviour
     public GameObject enemy;
     public GameObject deathExplosion;
 
+    public string name;
     public float killXP;
 
     //BossHealthBar
@@ -55,6 +56,8 @@ public class HealthScript : MonoBehaviour
             //obj.deathAnimation();
 
             //this.GetComponent<HealthScript>().enabled = false;
+
+            ScoreBoard.Instance.kill(name);
             UIUX.Instance.AddXP(killXP);
             Destroy(gameObject);
         }

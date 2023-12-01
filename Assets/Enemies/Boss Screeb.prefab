@@ -148,6 +148,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   enemy: {fileID: 4158785016248774902}
   deathExplosion: {fileID: 861854431766076844, guid: 301495b49c1b4284890b7c3904a12fb9, type: 3}
+  name: Boss Screeb
   killXP: 25
   fill: 0
   healthPct: 0

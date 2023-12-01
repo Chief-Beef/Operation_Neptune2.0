@@ -165,25 +165,29 @@ public class ChangeWeapon : MonoBehaviour
 
     public void LevelUp()
     {
-        //pause game and open menu
-        Time.timeScale = 0f;
-        upgradesMenu.SetActive(true);
-
         levelUpTxt[0].text = "Big Cannon Level: " + weaponLvl[0];
         levelUpTxt[1].text = "Small Cannon Level: " + weaponLvl[1];
         levelUpTxt[2].text = "Minigun Level: " + weaponLvl[2];
+
+        //pause game and open menu
+        Time.timeScale = 0f;
+        upgradesMenu.SetActive(true);
 
     }
 
     public void WeaponLevelUp(int i)
     {
 
+        levelUpTxt[0].text = "Big Cannon Level: " + weaponLvl[0];
+        levelUpTxt[1].text = "Small Cannon Level: " + weaponLvl[1];
+        levelUpTxt[2].text = "Minigun Level: " + weaponLvl[2];
+
         weaponDamage[i] *= 1.1f;
         weaponRange[i] *= 1.1f;
         weaponFireRate[i] *= 1.1f;
 
         weaponLvl[i]++;
-
+        
         PlayerShoot.Instance.damage = weaponDamage[activeGun];
         PlayerShoot.Instance.turretRange = weaponRange[activeGun];
         PlayerShoot.Instance.fireRate = weaponFireRate[activeGun];
@@ -193,9 +197,6 @@ public class ChangeWeapon : MonoBehaviour
         upgradesMenu.SetActive(false);
         Time.timeScale = 1f;
 
-        levelUpTxt[0].text = "Big Cannon Level: " + weaponLvl[0];
-        levelUpTxt[1].text = "Small Cannon Level: " + weaponLvl[1];
-        levelUpTxt[2].text = "Minigun Level: " + weaponLvl[2];
 
     }
 

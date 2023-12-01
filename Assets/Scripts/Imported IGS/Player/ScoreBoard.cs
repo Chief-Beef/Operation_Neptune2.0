@@ -19,14 +19,14 @@ public class ScoreBoard : MonoBehaviour
     public bool active;             //is the multikill actively happening
 
     //How many points for each enemy
-    public int titanPoints;         //
     public int lintPoints;          // Points for kills
-    public int angelPoints;         //
+    public int screebPoints;        //
+    public int bossLintPoints;
+    public int bossScreebPoints;
 
     //total kills of each type
-    public int totalTitans;         //
     public int totalLints;          //
-    public int totalAngels;         // Total Kills
+    public int totalScreebs;        // Total Kills
     public int totalKills;          //
 
     //Sprites + Images
@@ -51,9 +51,9 @@ public class ScoreBoard : MonoBehaviour
     public Sprite twentySpree;
     public Sprite thirtySpree;
 
-    public Sprite rocketMan;
-    public Sprite fireball;
-    public Sprite lightningBolt;
+    //public Sprite rocketMan;
+    //public Sprite fireball;
+    //public Sprite lightningBolt;
 
     private Vector3 midPoint, leftPoint, rightPoint;
     private string mkText;
@@ -63,7 +63,7 @@ public class ScoreBoard : MonoBehaviour
 
 
     //Speed Checks
-    public float xSpeed, ySpeed, linearSpeed;
+    //public float xSpeed, ySpeed, linearSpeed;
 
 
     // Start is called before the first frame update
@@ -86,9 +86,8 @@ public class ScoreBoard : MonoBehaviour
 
 
         score = 0;
-        totalTitans = 0;
         totalLints = 0;
-        totalAngels = 0;
+        totalScreebs = 0;
         totalKills = 0;
 
         active = false;
@@ -106,7 +105,7 @@ public class ScoreBoard : MonoBehaviour
         else
             multiKillTimer += Time.deltaTime;   //else add time
 
-        totalKills = totalTitans + totalLints + totalAngels;
+        totalKills = totalLints + totalScreebs;
     }
 
     //add kill and check if multikill
@@ -121,17 +120,9 @@ public class ScoreBoard : MonoBehaviour
         multiKillActive();          //set mk to active
         CheckMultiKill();           //check mks
         CheckStreak();              //check killstreak
-        playerSpeed();              //check player speed
+        //playerSpeed();              //check player speed
     }
 
-    //reference from titan script
-    public void TitanKill()
-    {
-        score += titanPoints;
-        totalTitans++;
-        addKill();
-        //NoisyBoi.Instance.MakeNoise(1);
-    }
 
     //reference from lint script
     public void LintKill()
@@ -140,14 +131,29 @@ public class ScoreBoard : MonoBehaviour
         totalLints++;
         addKill();
         //NoisyBoi.Instance.MakeNoise(2);
-
     }
 
-    //reference from angel script
-    public void AngelKill()
+    public void BossLintKill()
     {
-        score += angelPoints;
+        score += bossLintPoints;
         totalLints++;
+        addKill();
+        //NoisyBoi.Instance.MakeNoise(2);
+    }
+
+    //reference from Screeb script
+    public void ScreebKill()
+    {
+        score += screebPoints;
+        totalScreebs++;
+        addKill();
+        //NoisyBoi.Instance.MakeNoise(3);
+    }
+
+    public void BossScreebKill()
+    {
+        score += bossScreebPoints;
+        totalScreebs++;
         addKill();
         //NoisyBoi.Instance.MakeNoise(3);
     }
@@ -308,13 +314,19 @@ public class ScoreBoard : MonoBehaviour
     {
         if (name == "Lint")
             LintKill();
-        else if (name == "Flying One")
-            AngelKill();
+        else if (name == "Screeb")
+            ScreebKill();
+        else if (name == "Boss Lint")
+            BossLintKill();
+        else if (name == "Boss Screeb")
+            BossScreebKill();
+        else
+            Debug.Log("Check Name on Kill");
     }
-
+     
     //Awards medals for getting a kill at a high speed
     //the higher the speed the better the medal
-    public void playerSpeed()
+    /*public void playerSpeed()
     {
         xSpeed = rb.velocity.x;
         ySpeed = rb.velocity.y;
@@ -338,5 +350,5 @@ public class ScoreBoard : MonoBehaviour
         }
 
         //Debug.Log("Linear Speed: " + linearSpeed);
-    }
+    }*/
 }
