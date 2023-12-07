@@ -83,7 +83,7 @@ public class UIUX : MonoBehaviour
             newLevelXP = 10f + level * 3f;
 
             level++;
-            levelTxt.text = "Level:" + level;
+            levelTxt.text = " LVL: " + level;
 
             ChangeWeapon.Instance.LevelUp();
 

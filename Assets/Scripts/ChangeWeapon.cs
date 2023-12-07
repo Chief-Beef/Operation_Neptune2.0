@@ -153,6 +153,7 @@ public class ChangeWeapon : MonoBehaviour
                 PlayerShoot.Instance.turretRange = weaponRange[activeGun];
                 PlayerShoot.Instance.fireRate = weaponFireRate[activeGun];
                 PlayerShoot.Instance.shotTimer = 1 / weaponFireRate[activeGun];
+                PlayerShoot.Instance.activeWeapon = activeGun;
             }
             else
             {

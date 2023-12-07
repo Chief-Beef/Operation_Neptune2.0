@@ -22,10 +22,12 @@ public class PlayerShoot : MonoBehaviour
 
     //public ParticleSystem gunShot;  //gunshot particle effect
 
-    public Bullet[] bullets = new Bullet[8];
+    public Bullet[] bullets = new Bullet[72];
     public int totalShots = 0;
 
     public float shotTimer;     //delay between shots    
+
+    public int activeWeapon = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -80,12 +82,12 @@ public class PlayerShoot : MonoBehaviour
             }
 
 
-            bullets[totalShots % 4].HitTarget(target.transform.position);
+            bullets[totalShots % 24 + 24*activeWeapon].HitTarget(target.transform.position);
 
         }
         else
         {
-            bullets[totalShots % 4].Shoot();
+            bullets[totalShots % 24 + 24 * activeWeapon].Shoot();
         }
 
         //gunShot.Play();
@@ -97,8 +99,10 @@ public class PlayerShoot : MonoBehaviour
     {
         yield return new WaitForSeconds(.3f);
 
-        targetRB.AddForce(this.transform.up * PlayerShoot.Instance.knockback, ForceMode2D.Impulse);
         target.hitMarker(PlayerShoot.Instance.damage);
+        if (target.health > 0)
+            targetRB.AddForce(this.transform.up * PlayerShoot.Instance.knockback, ForceMode2D.Impulse);
+
 
         DamgeNumbers.Instance.DisplayNumber(hit.transform, PlayerShoot.Instance.damage);
 

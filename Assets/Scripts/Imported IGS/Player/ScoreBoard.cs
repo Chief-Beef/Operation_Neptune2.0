@@ -55,7 +55,7 @@ public class ScoreBoard : MonoBehaviour
     //public Sprite fireball;
     //public Sprite lightningBolt;
 
-    private Vector3 midPoint, leftPoint, rightPoint;
+    public Transform midPoint, leftPoint, rightPoint;
     private string mkText;
 
     public int medalCounter;
@@ -70,10 +70,6 @@ public class ScoreBoard : MonoBehaviour
     void Start()
     {
         Instance = this;
-
-        midPoint = image1.transform.position;
-        leftPoint = new Vector3(midPoint.x - 140, midPoint.y, midPoint.z);
-        rightPoint = new Vector3(midPoint.x + 140, midPoint.y, midPoint.z);
 
         medalWheel[0].enabled = false;
         medalWheel[1].enabled = false;
@@ -265,15 +261,15 @@ public class ScoreBoard : MonoBehaviour
     {
 
         if (count == 0)
-            medalWheel[0].transform.position = midPoint;
+            medalWheel[0].transform.position = midPoint.position;
         else if (count == 1)
-            medalWheel[1].transform.position = rightPoint;
+            medalWheel[1].transform.position = rightPoint.position;
         else
         {
             //rotates medals
-            medalWheel[(count-2)%3].transform.position = leftPoint;
-            medalWheel[(count-1)%3].transform.position = midPoint;
-            medalWheel[(count)%3].transform.position = rightPoint;
+            medalWheel[(count-2)%3].transform.position = leftPoint.position;
+            medalWheel[(count-1)%3].transform.position = midPoint.position;
+            medalWheel[(count)%3].transform.position = rightPoint.position;
         }
         
     }
