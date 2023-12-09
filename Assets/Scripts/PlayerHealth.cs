@@ -105,4 +105,20 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(timer);
         immune = false;
     }
+
+    private void OnTriggerEnter2D(Collider2D trigger)
+    {
+        if(trigger.gameObject.tag == "BossLaser")
+        {
+            TakeDamage(75f);
+        }
+        else if (trigger.gameObject.tag == "Laser")
+        {
+            TakeDamage(35f);
+        }
+
+        Debug.Log(trigger.gameObject.tag + " " + trigger.gameObject.name);
+
+    }
+
 }

@@ -125,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPos: {fileID: 0}
   direction: {x: 0, y: 0}
-  speed: 4
+  speed: 6
   rb: {fileID: 521056850542223424}
   attackRange: 1
   attackDamage: 20

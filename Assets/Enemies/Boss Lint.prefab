@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1507794448604360043}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.06, y: 0.06, z: 1}
   m_Children: []
   m_Father: {fileID: 5507398503036246659}
   m_RootOrder: 1
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0.1375791, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 511604dd8cc7544428be0bf37a1aac9b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -270,8 +270,8 @@ GameObject:
   - component: {fileID: 575113788719411567}
   - component: {fileID: 3469024637938128804}
   m_Layer: 8
-  m_Name: Laser
-  m_TagString: Untagged
+  m_Name: BossLaser
+  m_TagString: BossLaser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -351,7 +351,7 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -365,7 +365,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 300, y: 4}
   m_EdgeRadius: 0
 --- !u!1 &6837423870195414067
 GameObject:
@@ -393,7 +393,7 @@ Transform:
   m_GameObject: {fileID: 6837423870195414067}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.06, y: 0.06, z: 1}
   m_Children:
   - {fileID: 3873398900732356535}
   m_Father: {fileID: 5507398503036246659}
@@ -439,7 +439,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: bad20e7671f87754f8d9c8bcb84ac0ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d7311d65fa4ba40468cad892e3a6554a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -503,7 +503,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   speed: 3
   rb: {fileID: 3549579408509689233}
-  attackRange: 12
+  attackRange: 30
   attackDamage: 20
   canAttack: 0
   canMove: 0
@@ -517,7 +517,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   coroutineReset: 0
-  waitTime: 5
+  waitTime: 3
   laser: {fileID: 2337414127743905513}
 --- !u!114 &2921310495190763574
 MonoBehaviour:
