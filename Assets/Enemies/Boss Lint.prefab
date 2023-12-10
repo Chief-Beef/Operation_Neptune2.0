@@ -503,7 +503,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   speed: 3
   rb: {fileID: 3549579408509689233}
-  attackRange: 30
+  attackRange: 12
   attackDamage: 20
   canAttack: 0
   canMove: 0
@@ -537,7 +537,7 @@ MonoBehaviour:
   enemy: {fileID: 8415457469697504978}
   deathExplosion: {fileID: 6639266000747110412, guid: fed0562ac8e10654aad56e04ef3818fc, type: 3}
   name: Boss Lint
-  killXP: 25
+  killXP: 15
   fill: 0
   healthPct: 0
   HealthImage: {fileID: 1390217014213372821}

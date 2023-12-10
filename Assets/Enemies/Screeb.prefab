@@ -73,7 +73,7 @@ MonoBehaviour:
   enemy: {fileID: 4499279876100919057}
   deathExplosion: {fileID: 861854431766076844, guid: 301495b49c1b4284890b7c3904a12fb9, type: 3}
   name: Screeb
-  killXP: 3
+  killXP: 2
   fill: 0
   healthPct: 0
   HealthImage: {fileID: 0}

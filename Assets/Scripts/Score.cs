@@ -295,7 +295,7 @@ public class Score : MonoBehaviour
     {
         if (name == "Lint")
             LintKill();
-        else if (name == "Flying One")
+        else if (name == "Screeb")
             ScreebKill();
     }
 

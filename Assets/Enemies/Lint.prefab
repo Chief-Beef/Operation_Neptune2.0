@@ -360,7 +360,7 @@ MonoBehaviour:
   enemy: {fileID: 8787370530223467769}
   deathExplosion: {fileID: 6639266000747110412, guid: fed0562ac8e10654aad56e04ef3818fc, type: 3}
   name: Lint
-  killXP: 5
+  killXP: 4
   fill: 0
   healthPct: 0
   HealthImage: {fileID: 0}
