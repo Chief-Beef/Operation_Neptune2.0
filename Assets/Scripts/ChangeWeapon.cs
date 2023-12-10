@@ -45,7 +45,9 @@ public class ChangeWeapon : MonoBehaviour
     public float[] weaponFireRate = new float[3];
 
     public GameObject upgradesMenu;
-    public int[] weaponLvl = new int[3]; 
+    public int[] weaponLvl = new int[3];
+
+    public AudioSource[] gunSounds = new AudioSource[3];
 
     // Start is called before the first frame update
     void Start()
@@ -154,6 +156,7 @@ public class ChangeWeapon : MonoBehaviour
                 PlayerShoot.Instance.fireRate = weaponFireRate[activeGun];
                 PlayerShoot.Instance.shotTimer = 1 / weaponFireRate[activeGun];
                 PlayerShoot.Instance.activeWeapon = activeGun;
+                PlayerShoot.Instance.gunShot = gunSounds[activeGun];
             }
             else
             {

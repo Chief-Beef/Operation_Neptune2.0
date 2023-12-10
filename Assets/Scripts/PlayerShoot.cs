@@ -20,7 +20,7 @@ public class PlayerShoot : MonoBehaviour
     public float knockback;     //per shot knockback
     public RaycastHit2D hit;    //raycast
 
-    //public ParticleSystem gunShot;  //gunshot particle effect
+    public AudioSource gunShot;
 
     public Bullet[] bullets = new Bullet[72];
     public int totalShots = 0;
@@ -66,6 +66,7 @@ public class PlayerShoot : MonoBehaviour
 
         Debug.DrawRay(this.transform.position, this.transform.up * turretRange, Color.blue, 1f);
 
+        //gunShot.Play();
 
         if (hit.collider != null)
         {

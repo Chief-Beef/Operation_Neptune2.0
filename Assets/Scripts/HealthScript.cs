@@ -22,7 +22,7 @@ public class HealthScript : MonoBehaviour
 
     public Image HealthImage;
 
-
+    AudioSource hit, death;
 
     // Start is called before the first frame update
     void Start()
@@ -56,11 +56,13 @@ public class HealthScript : MonoBehaviour
             //obj.deathAnimation();
 
             //this.GetComponent<HealthScript>().enabled = false;
-
+            death.Play();
             ScoreBoard.Instance.kill(name);
             UIUX.Instance.AddXP(killXP);
             Destroy(gameObject);
         }
+        else
+            hit.Play();
 
         if (HealthImage != null)
         {
