@@ -27,6 +27,8 @@ public class PlayerHealth : MonoBehaviour
     public float respawnImmunity, hitImmunity;
     public bool immune;
 
+    public AudioSource hurt;
+
     private void Start()
     {
         immune = false;
@@ -69,6 +71,7 @@ public class PlayerHealth : MonoBehaviour
             health -= dmg;
             regenTimer = 5f;
             StartCoroutine(ImmunityReset(hitImmunity));     //iFrames on hit
+            hurt.Play();
 
             if (health <= 0)
             {

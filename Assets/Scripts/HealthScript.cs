@@ -22,7 +22,7 @@ public class HealthScript : MonoBehaviour
 
     public Image HealthImage;
 
-    AudioSource hit, death;
+    public AudioSource hit, death;
 
     // Start is called before the first frame update
     void Start()

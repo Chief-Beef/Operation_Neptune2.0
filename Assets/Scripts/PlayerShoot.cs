@@ -66,7 +66,7 @@ public class PlayerShoot : MonoBehaviour
 
         Debug.DrawRay(this.transform.position, this.transform.up * turretRange, Color.blue, 1f);
 
-        //gunShot.Play();
+        gunShot.Play();
 
         if (hit.collider != null)
         {
@@ -91,7 +91,6 @@ public class PlayerShoot : MonoBehaviour
             bullets[totalShots % 24 + 24 * activeWeapon].Shoot();
         }
 
-        //gunShot.Play();
 
         totalShots++;
     }
