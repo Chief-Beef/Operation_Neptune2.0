@@ -18,6 +18,8 @@ public class PlayerHealth : MonoBehaviour
 
     public Image HealthImage;
 
+    public AudioSource gameMusic;
+
     //Game Over Stuff
     public GameObject platform, turret, healthBar, spawners;
     public GameObject gameOverScreen;
@@ -96,6 +98,8 @@ public class PlayerHealth : MonoBehaviour
 
         Time.timeScale = 0f;
         gameOverScreen.SetActive(true);
+
+        gameMusic.Stop();
 
         StartCoroutine(ImmunityReset(respawnImmunity));        //iFrames on respawn
 

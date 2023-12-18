@@ -49,6 +49,10 @@ public class WinLose : MonoBehaviour
 
         Time.timeScale = 1f;
 
+        EnemySpawn.Instance.canSpawn = true;
+
+        PlayerHealth.Instance.gameMusic.Play();
+
     }
 
     public void PlayAgain()

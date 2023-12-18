@@ -61,6 +61,8 @@ public class ScoreBoard : MonoBehaviour
     public int medalCounter;
     public int killStreak;
 
+    public Text ScoreTxt, KillTxt, MedalsTxt;
+
 
     //Speed Checks
     //public float xSpeed, ySpeed, linearSpeed;
@@ -91,6 +93,11 @@ public class ScoreBoard : MonoBehaviour
 
         if (rb == null)
             rb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+
+        ScoreTxt.text = "Score: " + score;
+        KillTxt.text = "Kills: " + totalKills;
+        MedalsTxt.text = "Medals: " + medalCounter;
+
     }
 
     //timers and kill count
@@ -116,7 +123,8 @@ public class ScoreBoard : MonoBehaviour
         multiKillActive();          //set mk to active
         CheckMultiKill();           //check mks
         CheckStreak();              //check killstreak
-        //playerSpeed();              //check player speed
+        UpdateText();               //Update Scoreboard
+
     }
 
 
@@ -318,6 +326,13 @@ public class ScoreBoard : MonoBehaviour
             BossScreebKill();
         else
             Debug.Log("Check Name on Kill");
+    }
+
+    public void UpdateText()
+    {
+        ScoreTxt.text = "Score: " + score;
+        KillTxt.text = "Kills: " + totalKills;
+        MedalsTxt.text = "Medals: " + medalCounter;
     }
      
     //Awards medals for getting a kill at a high speed

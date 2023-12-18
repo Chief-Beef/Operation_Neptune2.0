@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
+    public static EnemySpawn Instance;
 
     public GameObject Lint, Screeb, BossLint, BossScreeb;
     public Transform playerPos;
@@ -27,6 +28,7 @@ public class EnemySpawn : MonoBehaviour
     {
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
         canSpawn = true;
+        Instance = this;
     }
 
     // Update is called once per frame
@@ -46,9 +48,9 @@ public class EnemySpawn : MonoBehaviour
 
     IEnumerator WaveDelay()
     {
+        totalSpawn = 0;
         yield return new WaitForSeconds(waveRate);
         canSpawn = true;
-        totalSpawn = 0;
         totalWaves++;
     }
 

@@ -115,7 +115,6 @@ public class ChangeWeapon : MonoBehaviour
         levelUpTxt[1].text = "Small Cannon Level: " + weaponLvl[1];
         levelUpTxt[2].text = "Minigun Level: " + weaponLvl[2];
 
-
     }
 
     // Update is called once per frame
@@ -186,9 +185,9 @@ public class ChangeWeapon : MonoBehaviour
         levelUpTxt[1].text = "Small Cannon Level: " + weaponLvl[1];
         levelUpTxt[2].text = "Minigun Level: " + weaponLvl[2];
 
-        weaponDamage[i] *= 1.1f;
-        weaponRange[i] *= 1.1f;
-        weaponFireRate[i] *= 1.1f;
+        weaponDamage[i] *= 1.075f;
+        weaponRange[i] *= 1.075f;
+        weaponFireRate[i] *= 1.075f;
 
         weaponLvl[i]++;
         
